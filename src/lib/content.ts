@@ -32,21 +32,38 @@ export type Project = {
   link?: { label: string; href: string };
 };
 
+// Order matters: the lead project is the one a reader matches against what they
+// are hiring for. Automation first, because that is the work being sold.
 export const flagship: Project[] = [
+  {
+    name: 'BrightData Social Scraper',
+    kind: 'n8n workflow',
+    summary: 'A multi-model pipeline that runs itself: scrape, research, write, deliver.',
+    detail:
+      "Scrapes trending stories through BrightData, enriches each one with Perplexity research, generates content angles with an LLM and emails an HTML digest. Credentials are externalized to n8n's credential manager so the workflow ships without secrets.",
+    specs: [
+      { label: 'Source', value: 'BrightData custom collector' },
+      { label: 'Enrichment', value: 'Perplexity research pass' },
+      { label: 'Generation', value: 'LLM content angles' },
+      { label: 'Delivery', value: 'HTML digest, optional email' }
+    ],
+    stack: ['n8n', 'BrightData', 'Perplexity', 'LLM APIs'],
+    link: { label: 'Repository', href: 'https://github.com/kcespiritu/brightdatascraper' }
+  },
   {
     name: 'EcoConnect',
     kind: 'Reverse-vending kiosk',
     summary: 'A bottle-recycling kiosk that runs its own Wi-Fi network.',
     detail:
-      'Users join the kiosk hotspot, land on a captive portal, deposit bottles and earn rewards. An Arduino reads an IR sensor and drives a servo; a Raspberry Pi runs detection, sessions and reward logic; a React display shows the running total.',
+      'Users join the kiosk hotspot, land on a captive portal, deposit bottles and earn rewards. I wrote the backend that runs detection, sessions and reward logic, the integration layer that reads the IR sensor and drives the servo, and the interface the kiosk display talks to.',
     specs: [
       { label: 'Context', value: 'Hired technical support for a university thesis team' },
-      { label: 'Hardware', value: 'Arduino: IR sensor, servo mechanism' },
+      { label: 'Scope', value: 'Backend, hardware integration, frontend-backend interface' },
+      { label: 'Hardware', value: 'Arduino: IR sensor, servo drive' },
       { label: 'Device', value: 'Raspberry Pi: Node service, SQLite' },
-      { label: 'Interface', value: 'React kiosk UI, captive portal' },
       { label: 'Operations', value: 'systemd units, mock-hardware test mode' }
     ],
-    stack: ['Arduino', 'Raspberry Pi', 'Node.js', 'SQLite', 'React', 'Networking', 'systemd'],
+    stack: ['Arduino', 'Raspberry Pi', 'Node.js', 'SQLite', 'Networking', 'systemd'],
     link: { label: 'Repository', href: 'https://github.com/kcespiritu/eco-connect-master' }
   },
   {
@@ -62,21 +79,6 @@ export const flagship: Project[] = [
     ],
     stack: ['JavaScript', 'Chrome Extensions', 'On-device AI'],
     link: { label: 'Repository', href: 'https://github.com/kcespiritu/LeadExtract' }
-  },
-  {
-    name: 'BrightData Social Scraper',
-    kind: 'n8n workflow',
-    summary: 'A multi-model pipeline that turns X lists into a researched daily digest.',
-    detail:
-      "Scrapes trending stories through BrightData, enriches each one with Perplexity research, generates content angles with an LLM and emails an HTML digest. Credentials are externalized to n8n's credential manager so the workflow ships without secrets.",
-    specs: [
-      { label: 'Source', value: 'BrightData custom collector' },
-      { label: 'Enrichment', value: 'Perplexity research pass' },
-      { label: 'Generation', value: 'LLM content angles' },
-      { label: 'Delivery', value: 'HTML digest, optional email' }
-    ],
-    stack: ['n8n', 'BrightData', 'Perplexity', 'LLM APIs'],
-    link: { label: 'Repository', href: 'https://github.com/kcespiritu/brightdatascraper' }
   }
 ];
 

@@ -40,7 +40,7 @@ export default function HomePage() {
       <Section
         index="01 — Selected work"
         title="Three things worth looking at"
-        lead="Each of these had to hold together across more than one layer: hardware, a backend, an interface, and whatever keeps it running."
+        lead="Each of these is several moving parts that had to survive contact with real use."
       >
         <div className="grid gap-12">
           {flagship.map((project) => (
