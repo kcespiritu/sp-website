@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Section } from '@/components/Section';
 import { ProjectEntry } from '@/components/ProjectEntry';
-import { capabilities, flagship, focus, site } from '@/lib/content';
+import { flagship, focus, howItWorks, services, site } from '@/lib/content';
 
 export default function HomePage() {
   return (
@@ -50,18 +50,28 @@ export default function HomePage() {
       </Section>
 
       <Section
-        index="02 — What I do"
-        title="Where I am useful"
-        lead="Mostly in the gap between systems that were never designed to talk to each other."
+        index="02 — Work with me"
+        title="Three ways this usually starts"
+        lead="Fixed scope and a fixed price, agreed before I start. No hourly billing."
       >
         <div className="specgrid sm:grid-cols-3">
-          {capabilities.map((item) => (
+          {services.map((item) => (
             <div key={item.title}>
               <h3 className="text-sm font-medium text-ink">{item.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted">{item.body}</p>
             </div>
           ))}
         </div>
+
+        <ol className="specgrid mt-4 sm:grid-cols-3">
+          {howItWorks.map((item) => (
+            <div key={item.step}>
+              <p className="label">{item.step}</p>
+              <h4 className="mt-1.5 text-sm font-medium text-ink">{item.title}</h4>
+              <p className="mt-1 text-sm leading-relaxed text-muted">{item.body}</p>
+            </div>
+          ))}
+        </ol>
       </Section>
 
       <section className="border-t border-line py-16 sm:py-24">

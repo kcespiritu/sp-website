@@ -11,7 +11,7 @@ export const site = {
   claim: 'I build systems where hardware, backend, and AI have to actually work together.',
   intro:
     'Automation engineer and full-stack developer. Chemical engineering background, self-taught in software. I take things from a first sketch to deployed and running.',
-  availability: 'Open to remote roles and select freelance work'
+  availability: 'Available for a scoped project, or a remote role'
 };
 
 export const focus = [
@@ -122,19 +122,27 @@ export const earlier: EarlierProject[] = [
   }
 ];
 
-export const capabilities = [
+// Buyable offers, not skill categories. "Automation engineer" is a category; a
+// fixed-scope engagement is something a client can actually say yes to.
+export const services = [
   {
-    title: 'Automation & AI',
-    body: 'n8n, Xano, OpenAI and Gemini APIs, LLM agents, RAG pipelines, third-party API integration.'
+    title: 'Automation build',
+    body: 'A process that eats hours every week, mapped and rebuilt in n8n or Xano. Handed over running, with the failure paths handled.'
   },
   {
-    title: 'Full-stack',
-    body: 'Next.js, React, TypeScript, Node.js, Python, FastAPI, PostgreSQL, Supabase, Tailwind.'
+    title: 'AI integration',
+    body: 'An LLM step added to something you already run: extract, classify, draft, summarise. Guardrails included, because real data is messy.'
   },
   {
-    title: 'Systems & infrastructure',
-    body: 'Linux, Docker, networking, self-hosted servers, systemd, Raspberry Pi and embedded hardware.'
+    title: 'Systems and wiring',
+    body: 'Two systems that do not talk to each other, an internal tool nobody wants to own, or infrastructure that keeps falling over.'
   }
+];
+
+export const howItWorks = [
+  { step: 'Step 01', title: 'Short call', body: 'What the process is, and what it costs you today.' },
+  { step: 'Step 02', title: 'Scope and price', body: 'Fixed, in writing, before anything starts.' },
+  { step: 'Step 03', title: 'Build and hand over', body: 'Running, documented, and yours to keep.' }
 ];
 
 export const skillGroups = [

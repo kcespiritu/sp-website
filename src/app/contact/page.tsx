@@ -62,15 +62,18 @@ export default function ContactPage() {
 
       <section className="border-t border-line py-14 sm:py-20">
         <div className="grid gap-8 lg:grid-cols-[minmax(0,15rem)_minmax(0,1fr)] lg:gap-16">
-          <p className="label">02 — Status</p>
+          <p className="label">02 — Start here</p>
           <div className="max-w-2xl">
             <p className="flex items-center gap-2.5 text-base text-ink">
               <span className="dot" aria-hidden />
               Currently available
             </p>
             <p className="mt-4 text-base leading-relaxed text-muted">
-              {site.availability}. If you are not sure whether your problem is a fit, describe it anyway — I
-              will tell you honestly if it is not.
+              {site.availability}. Tell me what the process is, roughly how much time it eats, and what
+              you have already tried. If it is not worth automating, I will say so.
+            </p>
+            <p className="mt-4 text-base leading-relaxed text-muted">
+              I reply within one business day, usually sooner, and I work across time zones.
             </p>
           </div>
         </div>
