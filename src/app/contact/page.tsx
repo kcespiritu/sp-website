@@ -1,29 +1,80 @@
+import type { Metadata } from 'next';
 import { Section } from '@/components/Section';
+import { site } from '@/lib/content';
+
+export const metadata: Metadata = {
+  title: 'Contact',
+  description: `Get in touch with ${site.name} — automation, full-stack, and systems work.`
+};
+
+const LINK =
+  'text-ink underline decoration-line decoration-1 underline-offset-4 transition-colors hover:decoration-accent hover:text-accent break-words';
 
 export default function ContactPage() {
   return (
-    <div className="space-y-8">
-      <Section title="Contact" subtitle="Have a goal in mind? Let's talk.">
-        <div className="space-y-4">
-          <p className="text-gray-700">
-            I'm currently open to select freelance and collaboration opportunities.
-          </p>
-          <ul className="space-y-2 text-gray-700">
-            <li>
-              Email: <a className="underline hover:text-gray-900" href="mailto:kennethespiritu0821@gmail.com">kennethespiritu0821@gmail.com</a>
-            </li>
-            <li>
-              LinkedIn: <a className="underline hover:text-gray-900" href="https://linkedin.com/in/kcsp2" target="_blank" rel="noreferrer noopener">linkedin.com/in/kcsp2</a>
-            </li>
-            <li>
-              GitHub: <a className="underline hover:text-gray-900" href="https://github.com/duuubu821" target="_blank" rel="noreferrer noopener">github.com/duuubu821</a>
-            </li>
-          </ul>
-        </div>
+    <div className="shell">
+      <section className="pb-4 pt-14 sm:pt-20">
+        <p className="label">Contact</p>
+        <h1 className="mt-5 max-w-3xl text-[clamp(1.75rem,4.5vw,2.75rem)] font-semibold leading-[1.1] tracking-tightest text-ink">
+          Tell me what needs building.
+        </h1>
+        <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted">
+          I am based in {site.location} and work remotely across time zones. The fastest way to reach me is
+          email.
+        </p>
+      </section>
+
+      <Section index="01 — Direct" title="Where to reach me">
+        <dl className="specgrid sm:grid-cols-2">
+          <div>
+            <dt className="label">Email</dt>
+            <dd className="mt-1.5 text-sm">
+              <a className={LINK} href={`mailto:${site.email}`}>
+                {site.email}
+              </a>
+            </dd>
+          </div>
+
+          <div>
+            <dt className="label">GitHub</dt>
+            <dd className="mt-1.5 text-sm">
+              <a className={LINK} href={site.github} target="_blank" rel="noreferrer noopener">
+                {site.githubLabel}
+              </a>
+            </dd>
+          </div>
+
+          <div>
+            <dt className="label">LinkedIn</dt>
+            <dd className="mt-1.5 text-sm">
+              <a className={LINK} href={site.linkedin} target="_blank" rel="noreferrer noopener">
+                {site.linkedinLabel}
+              </a>
+            </dd>
+          </div>
+
+          <div>
+            <dt className="label">Location</dt>
+            <dd className="mt-1.5 text-sm text-ink">{site.location} &middot; UTC+8</dd>
+          </div>
+        </dl>
       </Section>
+
+      <section className="border-t border-line py-14 sm:py-20">
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,15rem)_minmax(0,1fr)] lg:gap-16">
+          <p className="label">02 — Status</p>
+          <div className="max-w-2xl">
+            <p className="flex items-center gap-2.5 text-base text-ink">
+              <span className="dot" aria-hidden />
+              Currently available
+            </p>
+            <p className="mt-4 text-base leading-relaxed text-muted">
+              {site.availability}. If you are not sure whether your problem is a fit, describe it anyway — I
+              will tell you honestly if it is not.
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
-
-
-

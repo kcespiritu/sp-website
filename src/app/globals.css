@@ -2,34 +2,90 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --bg: #f3f4f6; /* light gray */
-  --fg: #1f2937; /* slate-800 for readable text */
-  --muted: #6b7280; /* gray-500 */
-  --card: #ffffff;
-  --accent: #9ca3af; /* gray-400 */
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: theme('colors.paper');
+    color: theme('colors.ink');
+    font-feature-settings: 'kern' 1, 'liga' 1;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background-color: theme('colors.accent.DEFAULT');
+    color: #ffffff;
+  }
+
+  :focus-visible {
+    outline: 2px solid theme('colors.accent.DEFAULT');
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: pretty;
+  }
 }
 
-html, body {
-  height: 100%;
+@layer components {
+  .shell {
+    @apply mx-auto w-full max-w-content px-5 sm:px-8 lg:px-12;
+  }
+
+  .label {
+    @apply font-mono text-[11px] uppercase tracking-[0.16em] text-muted;
+  }
+
+  /* Hairline spec grid: 1px gaps over a line-coloured backdrop */
+  .specgrid {
+    @apply grid gap-px overflow-hidden rounded-md border border-line bg-line;
+  }
+
+  .specgrid > * {
+    @apply bg-surface px-4 py-3.5;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center rounded-md px-5 py-2.5 text-sm font-medium transition-colors duration-200;
+  }
+
+  .btn-primary {
+    @apply btn bg-ink text-paper hover:bg-accent;
+  }
+
+  .btn-ghost {
+    @apply btn border border-line bg-surface text-ink hover:border-ink;
+  }
+
+  .chip {
+    @apply rounded border border-line bg-surface px-2 py-0.5 font-mono text-[10.5px] uppercase tracking-[0.08em] text-muted;
+  }
+
+  .dot {
+    @apply inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-accent;
+  }
 }
 
-body {
-  background-color: var(--bg);
-  color: var(--fg);
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
-
-.container-max {
-  @apply max-w-5xl mx-auto px-4 sm:px-6 lg:px-8;
-}
-
-.card {
-  @apply bg-white/80 backdrop-blur rounded-xl border border-gray-200 shadow-sm;
-}
-
-.muted {
-  color: var(--muted);
-}
-
-
-

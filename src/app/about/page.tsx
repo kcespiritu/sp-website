@@ -1,72 +1,82 @@
+import type { Metadata } from 'next';
 import { Section } from '@/components/Section';
+import { about, site, skillGroups } from '@/lib/content';
+
+export const metadata: Metadata = {
+  title: 'About',
+  description:
+    'Kenneth Espiritu — Chemical Engineering graduate turned automation and full-stack developer, based in Manila.'
+};
 
 export default function AboutPage() {
   return (
-    <div className="space-y-8">
-      <Section title="About Me" subtitle="A little background">
-        <div className="space-y-4 text-justify">
-          <p className="text-gray-700">
-          I’m a Chemical Engineering graduate with a strong foundation in programming, systems design, and 
-          project management. My background in engineering has developed my analytical and 
-          problem-solving skills, while my experience in software development and automation has strengthened 
-          my technical versatility.
-          </p>
-          <p className='text-gray-700'>
-          I’ve led and supported projects that combine technical implementation and team coordination, 
-          ensuring efficient workflows and quality results. I’m driven by creating practical, data-informed 
-          solutions that bridge engineering and technology to improve processes and performance.
-          </p>
-          <p className="text-gray-700">
-          Over the past few years, I’ve developed and managed automation tools, 
-          server setups, and web applications, working closely with cross-functional teams to 
-          improve performance and streamline workflows.
-          </p>
+    <div className="shell">
+      <section className="pb-4 pt-14 sm:pt-20">
+        <p className="label">About</p>
+        <h1 className="mt-5 max-w-3xl text-[clamp(1.75rem,4.5vw,2.75rem)] font-semibold leading-[1.1] tracking-tightest text-ink">
+          Engineer first, developer by trade.
+        </h1>
+      </section>
+
+      <Section index="01 — Background" title="How I got here">
+        <div className="max-w-2xl space-y-5">
+          {about.map((paragraph) => (
+            <p key={paragraph.slice(0, 24)} className="text-base leading-relaxed text-ink/85">
+              {paragraph}
+            </p>
+          ))}
         </div>
       </Section>
 
-      <Section title="Skills" subtitle="Tools I use regularly">
-        <div className="grid gap-6 sm:grid-cols-2">
-          <div>
-            <h3 className="text-sm font-medium text-gray-900">Development & Frontend</h3>
-            <ul className="mt-2 flex flex-wrap gap-2">
-              {["Next.js", "React", "TypeScript", "JavaScript", "Tailwind CSS", "HTML", "CSS", "Git", "GitHub", "Vercel"].map((s) => (
-                <li key={s} className="rounded-md bg-gray-100 px-2 py-1 text-sm text-gray-700">{s}</li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-sm font-medium text-gray-900">Backend / Systems / Automation</h3>
-            <ul className="mt-2 flex flex-wrap gap-2">
-              {["Python", "Node.js", "Docker", "Linux", "Bash", "PowerShell", "Automation", "APIs", "REST", "Database Management", "Networking"].map((s) => (
-                <li key={s} className="rounded-md bg-gray-100 px-2 py-1 text-sm text-gray-700">{s}</li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-sm font-medium text-gray-900">AI & Automation Tools</h3>
-            <ul className="mt-2 flex flex-wrap gap-2">
-              {["AI Agents", "Copilot Studio", "PowerApps", "OpenAI API", "Gemini API", "LLMs", "Workflow Automation"].map((s) => (
-                <li key={s} className="rounded-md bg-gray-100 px-2 py-1 text-sm text-gray-700">{s}</li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-sm font-medium text-gray-900">Project Management / QA</h3>
-            <ul className="mt-2 flex flex-wrap gap-2">
-              {["Notion", "Trello", "Jira", "ClickUp", "Scrum", "Agile", "Documentation", "Testing"].map((s) => (
-                <li key={s} className="rounded-md bg-gray-100 px-2 py-1 text-sm text-gray-700">{s}</li>
-              ))}
-            </ul>
-          </div>
-
+      <Section
+        index="02 — Skills"
+        title="Tools I actually use"
+        lead="Not everything I have touched — the things I would be comfortable being handed on day one."
+      >
+        <div className="grid gap-x-10 gap-y-8 sm:grid-cols-2">
+          {skillGroups.map((group) => (
+            <div key={group.title}>
+              <h3 className="label">{group.title}</h3>
+              <ul className="mt-3.5 flex flex-wrap gap-2">
+                {group.items.map((item) => (
+                  <li key={item} className="chip">
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
       </Section>
+
+      <section className="border-t border-line py-14 sm:py-20">
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,15rem)_minmax(0,1fr)] lg:gap-16">
+          <p className="label">03 — Elsewhere</p>
+          <div className="max-w-2xl space-y-4">
+            <p className="text-base leading-relaxed text-muted">
+              The code is on GitHub, and the short version of my work history is on LinkedIn.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <a
+                className="btn-ghost"
+                href={site.github}
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                {site.githubLabel}
+              </a>
+              <a
+                className="btn-ghost"
+                href={site.linkedin}
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                {site.linkedinLabel}
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
-
-
-

@@ -1,21 +1,33 @@
 import Link from 'next/link';
 import { NavLink } from '@/components/NavLink';
+import { site } from '@/lib/content';
+
+const NAV = [
+  { href: '/', label: 'Home' },
+  { href: '/projects', label: 'Projects' },
+  { href: '/about', label: 'About' },
+  { href: '/contact', label: 'Contact' }
+];
 
 export function Header() {
   return (
-    <header className="border-b border-gray-200 bg-white/60 backdrop-blur">
-      <div className="container-max py-4 flex items-center justify-between">
-        <Link href="/" className="font-semibold tracking-tight text-gray-900">SP</Link>
-        <nav className="flex gap-6 text-sm text-gray-700">
-          <NavLink href="/">Home</NavLink>
-          <NavLink href="/about">About</NavLink>
-          <NavLink href="/projects">Projects</NavLink>
-          <NavLink href="/contact">Contact</NavLink>
+    <header className="sticky top-0 z-40 border-b border-line bg-paper/90 backdrop-blur-sm">
+      <div className="shell flex items-center justify-between gap-4 py-4">
+        <Link href="/" className="group flex min-w-0 items-baseline gap-3">
+          <span className="truncate text-sm font-semibold tracking-tight text-ink">{site.name}</span>
+          <span className="hidden font-mono text-[10.5px] uppercase tracking-[0.14em] text-muted sm:inline">
+            Automation &amp; Systems
+          </span>
+        </Link>
+
+        <nav aria-label="Main" className="flex items-center gap-0.5 sm:gap-1">
+          {NAV.map((item) => (
+            <NavLink key={item.href} href={item.href}>
+              {item.label}
+            </NavLink>
+          ))}
         </nav>
       </div>
     </header>
   );
 }
-
-
-
