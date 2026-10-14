@@ -59,8 +59,8 @@ export const flagship: Project[] = [
     specs: [
       { label: 'Context', value: 'Hired technical support for a university thesis team' },
       { label: 'Scope', value: 'Backend, hardware integration, frontend-backend interface' },
-      { label: 'Hardware', value: 'Arduino: IR sensor, servo drive' },
-      { label: 'Device', value: 'Raspberry Pi: Node service, SQLite' },
+      { label: 'Hardware', value: 'Servo barrier gate, driven over serial' },
+      { label: 'Device', value: 'Raspberry Pi: Node service, SQLite, IR input on GPIO17' },
       { label: 'Operations', value: 'systemd units, mock-hardware test mode' }
     ],
     stack: ['Arduino', 'Raspberry Pi', 'Node.js', 'SQLite', 'Networking', 'systemd'],
