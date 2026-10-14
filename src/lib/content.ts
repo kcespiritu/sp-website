@@ -59,11 +59,11 @@ export const flagship: Project[] = [
     specs: [
       { label: 'Context', value: 'Hired technical support for a university thesis team' },
       { label: 'Scope', value: 'Backend, hardware integration, frontend-backend interface' },
-      { label: 'Hardware', value: 'Servo barrier gate, driven over serial' },
+      { label: 'Hardware', value: 'Servo barrier gate on a Wemos D1 R2 (ESP8266), driven over serial' },
       { label: 'Device', value: 'Raspberry Pi: Node service, SQLite, IR input on GPIO17' },
       { label: 'Operations', value: 'systemd units, mock-hardware test mode' }
     ],
-    stack: ['Arduino', 'Raspberry Pi', 'Node.js', 'SQLite', 'Networking', 'systemd'],
+    stack: ['ESP8266', 'Raspberry Pi', 'Node.js', 'SQLite', 'Networking', 'systemd'],
     link: { label: 'Repository', href: 'https://github.com/kcespiritu/eco-connect-master' }
   },
   {
